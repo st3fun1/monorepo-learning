@@ -201,6 +201,33 @@
       },
       "tags": []
     },
+    "go-api": {
+      "root": "apps/go-api",
+      "projectType": "application",
+      "sourceRoot": "apps/go-api",
+      "architect": {
+        "build": {
+          "builder": "@nx-go/nx-go:build",
+          "options": {
+            "outputPath": "dist/apps/go-api",
+            "main": "apps/go-api/main.go"
+          }
+        },
+        "serve": {
+          "builder": "@nx-go/nx-go:serve",
+          "options": {
+            "main": "apps/go-api/main.go"
+          }
+        },
+        "test": {
+          "builder": "@nx-go/nx-go:test"
+        },
+        "lint": {
+          "builder": "@nx-go/nx-go:lint"
+        }
+      },
+      "tags": []
+    },
     "react-learning": {
       "root": "apps/react-learning",
       "sourceRoot": "apps/react-learning/src",

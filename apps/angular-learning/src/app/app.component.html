@@ -1,7 +1,18 @@
-<h1>Todos</h1>
+<custom-title [title]="'Angular'" [color]="'orange'"></custom-title>
 
 <ul>
   <li *ngFor="let t of todos" class="todo">{{ t.title }}</li>
 </ul>
 
 <button id="add-todo" (click)="addTodo()">Add Todo</button>
+
+<p>In this tutorial:</p>
+<ul>
+  <li>Built a full stack application using Angular and Nest</li>
+  <li>Shared code between the frontend and the backend</li>
+  <li>Created a UI library</li>
+  <li>Used Nx affected commands to only retest and rebuild what is affected</li>
+</ul>
+
+<h2>Counter Example</h2>
+<custom-counter [count]="3"></custom-counter>

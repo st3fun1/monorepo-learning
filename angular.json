@@ -201,6 +201,130 @@
       },
       "tags": []
     },
+    "react-learning": {
+      "root": "apps/react-learning",
+      "sourceRoot": "apps/react-learning/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:webpack",
+          "outputs": ["{options.outputPath}"],
+          "defaultConfiguration": "production",
+          "options": {
+            "compiler": "babel",
+            "outputPath": "dist/apps/react-learning",
+            "index": "apps/react-learning/src/index.html",
+            "baseHref": "/",
+            "main": "apps/react-learning/src/main.tsx",
+            "polyfills": "apps/react-learning/src/polyfills.ts",
+            "tsConfig": "apps/react-learning/tsconfig.app.json",
+            "assets": [
+              "apps/react-learning/src/favicon.ico",
+              "apps/react-learning/src/assets"
+            ],
+            "styles": ["apps/react-learning/src/styles.scss"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/react-learning/src/environments/environment.ts",
+                  "with": "apps/react-learning/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "react-learning:build",
+            "hmr": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "react-learning:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/react-learning/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/react-learning"],
+          "options": {
+            "jestConfig": "apps/react-learning/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
+    "react-learning-e2e": {
+      "root": "apps/react-learning-e2e",
+      "sourceRoot": "apps/react-learning-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/react-learning-e2e/cypress.json",
+            "devServerTarget": "react-learning:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "react-learning:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/react-learning-e2e/**/*.{js,ts}"]
+          }
+        }
+      },
+      "tags": [],
+      "implicitDependencies": ["react-learning"]
+    },
+    "shared-ui": {
+      "root": "libs/shared-ui",
+      "sourceRoot": "libs/shared-ui/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/shared-ui/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared-ui"],
+          "options": {
+            "jestConfig": "libs/shared-ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
+    },
     "ui": {
       "projectType": "library",
       "root": "libs/ui",

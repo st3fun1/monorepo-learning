@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@monorepo-learning/data": ["libs/data/src/index.ts"],
+      "@monorepo-learning/shared-ui": ["libs/shared-ui/src/index.ts"],
       "@monorepo-learning/ui": ["libs/ui/src/index.ts"]
     }
   },
